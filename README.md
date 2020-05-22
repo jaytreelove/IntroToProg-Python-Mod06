@@ -1,12 +1,10 @@
-## Welcome to GitHub Pages
+## Assignment 06
 
-You can use the [editor on GitHub](https://github.com/jaytreelove/IntroToProg-Python-Mod06/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Assignment 05 used Lists and Dictionaries to create a "To-Do List" app.  This assignment improves that script with the addition of Function. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Functions
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Functions are a way of grouping one or more statements. In Python, you must define a function before you can use code to call the function. Calling the function executes the statements in the function.
 
 ```markdown
 Syntax highlighted code block
