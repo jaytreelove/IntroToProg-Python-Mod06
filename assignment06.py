@@ -153,8 +153,7 @@ class IO:
 
     @staticmethod
     def input_new_task_and_priority():
-        """
-        Gets the task and priority from user
+        """ Gets the task and priority from user
         :return: task and priority
         """
         task = input("What do you need to accomplish? ")
@@ -166,7 +165,9 @@ class IO:
 
     @staticmethod
     def input_task_to_remove():
-        # TODO: Add Code Here!
+        """ Gets the task that is completed to remove from the list
+        :return: task
+        """
         task = input("Which task have you completed? ")
         return task
 
