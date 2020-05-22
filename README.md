@@ -13,4 +13,7 @@ Functions are a way of grouping one or more statements. In Python, you must defi
 
 [Google Homepage](https://www.google.com "Google's Homepage")
 [GitHub Webpage Code CheatSheet](https://github.com/adam-p/markdown- here/wiki/Markdown-Cheatsheet)
+
+http://github.com - automatic!
+[GitHub](http://github.com)
 ```
