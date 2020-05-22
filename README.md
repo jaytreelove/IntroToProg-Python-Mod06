@@ -1,6 +1,7 @@
 ## Assignment 06
 
-Assignment 05 used Lists and Dictionaries to create a "To-Do List" app.  This assignment improves that script with the addition of Function. 
+Assignment 05 used Lists and Dictionaries to create a "To-Do List" app.  
+This assignment improves that script with the addition of Function. 
 
 ### Functions
 
@@ -8,4 +9,4 @@ Functions are a way of grouping one or more statements. In Python, you must defi
 
 
 [Python Script](https://github.com/jaytreelove/IntroToProg-Python-Mod06/blob/master/assignment06.py)
-Documentation 
+Documentation
