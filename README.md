@@ -17,7 +17,7 @@ Documentation
 http://github.com - automatic!
 [GitHub](http://github.com)
 ```
-[Python Script] (https://github.com/jaytreelove/IntroToProg-Python-Mod06/blob/master/assignment06.py)
+[Python Script](https://github.com/jaytreelove/IntroToProg-Python-Mod06/blob/master/assignment06.py)
 Documentation 
 
 [Google Homepage](https://www.google.com "Google's Homepage")
