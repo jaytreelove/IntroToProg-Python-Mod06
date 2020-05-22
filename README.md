@@ -8,9 +8,10 @@ Functions are a way of grouping one or more statements. In Python, you must defi
 
 ```markdown
 
-[Python Script](https://github.com/jaytreelove/IntroToProg-Python-Mod06/blob/master/assignment06.py)
-Documentation 
+
 
 ```
 
 
+[Python Script](https://github.com/jaytreelove/IntroToProg-Python-Mod06/blob/master/assignment06.py)
+Documentation 
