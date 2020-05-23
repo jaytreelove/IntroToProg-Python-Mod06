@@ -18,7 +18,7 @@ strFileName = "ToDoFile.txt"  # The name of the data file
 file = None  # An object that represents a file
 row = {}  # A row of data separated into elements of a dictionary {Task,Priority}
 lstTable = []  # A list that acts as a 'table' of rows
-strChoice = ""  # Captures the user option selection
+choice = ""  # Captures the user option selection
 task = ""  # Captures the user task data
 priority = ""  # Captures the user priority data
 strStatus = ""  # Captures the status of an processing functions
@@ -31,7 +31,6 @@ class Processor:
     @staticmethod
     def read_data_from_file(file_name, list_of_rows):
         """ Reads data from a file into a list of dictionary rows
-
         :param file_name: (string) with name of file:
         :param list_of_rows: (list) you want filled with file data:
         :return: (list) of dictionary rows
@@ -95,7 +94,6 @@ class IO:
     @staticmethod
     def print_menu_Tasks():
         """  Display a menu of choices to the user
-
         :return: nothing
         """
         print('''
@@ -112,7 +110,6 @@ class IO:
     @staticmethod
     def input_menu_choice():
         """ Gets the menu choice from a user
-
         :return: string
         """
         choice = input("Which option would you like to perform? [1 to 5] - ").strip()
@@ -122,7 +119,6 @@ class IO:
     @staticmethod
     def print_current_Tasks_in_list(list_of_rows):
         """ Shows the current Tasks in the list of dictionaries rows
-
         :param list_of_rows: (list) of rows you want to display
         :return: nothing
         """
@@ -137,7 +133,6 @@ class IO:
     @staticmethod
     def input_yes_no_choice(message):
         """ Gets a yes or no choice from the user
-
         :return: string
         """
         return str(input(message)).strip().lower()
@@ -145,7 +140,6 @@ class IO:
     @staticmethod
     def input_press_to_continue(optional_message=''):
         """ Pause program and show a message before continuing
-
         :param optional_message:  An optional message you want to display
         :return: nothing
         """
@@ -160,9 +154,6 @@ class IO:
         task = input("What do you need to accomplish? ")
         priority = input("What is the priority level? ")
         return task, priority
-
-
-        # return task, priority
 
     @staticmethod
     def input_task_to_remove():
@@ -185,7 +176,7 @@ while (True):
     IO.print_menu_Tasks()  # Shows menu
     strChoice = IO.input_menu_choice()  # Get menu option
 
-    # Option 1 - Process user's menu choice
+    # Step 4 - Process user's menu choice
     if strChoice.strip() == '1':  # Add a new Task
         task, priority = IO.input_new_task_and_priority()
         Processor.add_data_to_list(task, priority, lstTable)
