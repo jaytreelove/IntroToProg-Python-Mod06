@@ -9,17 +9,18 @@
 # RRoot,1.1.2030,Added code to complete assignment 5
 # JPlemons,5.20.2020,Modified code to complete assignment 6
 # JPlemons,5.21.2020, Second Draft
+# JPlemons,5.22.2020, Finishing Touches
 # ---------------------------------------------------------------------------- #
 
 # Data ---------------------------------------------------------------------- #
 # Declare variables and constants
 strFileName = "ToDoFile.txt"  # The name of the data file
-objFile = None  # An object that represents a file
-dicRow = {}  # A row of data separated into elements of a dictionary {Task,Priority}
+file = None  # An object that represents a file
+row = {}  # A row of data separated into elements of a dictionary {Task,Priority}
 lstTable = []  # A list that acts as a 'table' of rows
 strChoice = ""  # Captures the user option selection
-strTask = ""  # Captures the user task data
-strPriority = ""  # Captures the user priority data
+task = ""  # Captures the user task data
+priority = ""  # Captures the user priority data
 strStatus = ""  # Captures the status of an processing functions
 
 
@@ -212,7 +213,7 @@ while (True):
     elif strChoice == '4':  # Reload Data from File
         print("WARNING: Unsaved Tasks Will Be Lost!")
         strChoice = IO.input_yes_no_choice("Are you sure you want to reload data from file? (y/n) -  ")
-        if strChoice.lower() == 'y':
+        if strChoice.lower() == 'y': # to confirm user wants to reload
             Processor.read_data_from_file(strFileName, lstTable)
             IO.input_press_to_continue(strStatus)
         else:
@@ -220,8 +221,14 @@ while (True):
         continue  # to show the menu
 
     elif strChoice == '5':  # Exit Program
-        print("Goodbye! Go out there and complete these tasks!\n")
-        break  # and Exit
-    else:
+        print("WARNING: Unsaved Tasks Will Be Lost!")
+        strChoice = IO.input_yes_no_choice("Are you sure you want to exit? (y/n) -  ")
+        if strChoice.lower() == 'y': # To confirm user is ready to exit program
+            print("Goodbye! Go out there and complete these tasks!\n")
+            break  # and Exit
+        else:
+            IO.input_press_to_continue("Exit Cancelled!")
+        continue  # to show the menu
+    else: # to be displayed in user types anything other than 1-5
         print("You have unlocked the secret menu!")
         print("Actually there is nothing to see here.  Please select 1-5 only.")
