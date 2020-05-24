@@ -10,6 +10,7 @@
 # JPlemons,5.20.2020,Modified code to complete assignment 6
 # JPlemons,5.21.2020, Second Draft
 # JPlemons,5.22.2020, Finishing Touches
+# JPlemons,5.23.2020, Proof-read and final edit
 # ---------------------------------------------------------------------------- #
 
 # Data ---------------------------------------------------------------------- #
@@ -21,6 +22,7 @@ lstTable = []  # A list that acts as a 'table' of rows
 choice = ""  # Captures the user option selection
 task = ""  # Captures the user task data
 priority = ""  # Captures the user priority data
+task_check = ""  # a string boolean to test if task is in list
 strStatus = ""  # Captures the status of an processing functions
 
 
@@ -62,14 +64,14 @@ class Processor:
         :param list_of_rows: (list) you want filled with file data
         :return: (list) of dictionary rows
         """
-        strData = False
+        task_check = False
         for row in list_of_rows:
             if row["Task"].lower() == task.lower():
                 strData = True
                 lstTable.remove(row)
                 print(f"\nCongrats on a job well done! {task.capitalize()} has been removed.")
                 continue
-        if not strData:
+        if not task_check:
             print(f"\n{task.capitalize()} not found, you must have completed it earlier.")
         return list_of_rows, 'Success'
 
