@@ -97,13 +97,13 @@ class IO:
         :return: nothing
         """
         print('''
-******* Menu of Options *******************
-*        1) Add a New Task
-*         2) Remove a Completed Task
-*          3) Save Data to File        
-*           4) Reload Data from File
-*            5) Exit Program
-*******************************************
+****** Menu of Options *******
+      1) Add a New Task
+       2) Remove Task
+        3) Save File        
+         4) Reload
+          5) Exit
+******************************
         ''')
         print()  # Add an extra line for looks
 
@@ -122,12 +122,12 @@ class IO:
         :param list_of_rows: (list) of rows you want to display
         :return: nothing
         """
-        print("\n******* To-Do List: ***********************")
-        print("* Task --- Priority")
-        print("*-------------------")
+        print("\n********* To-Do List *********")
+        print("       Task --- Priority")
+        print("      -------------------")
         for row in list_of_rows:
-            print("* " + row["Task"] + " --- " + row["Priority"])
-        print("*******************************************")
+            print("       " + row["Task"] + " --- " + row["Priority"])
+        print("******************************")
         # print()  # Add an extra line for looks
 
     @staticmethod
@@ -181,13 +181,11 @@ while (True):
         task, priority = IO.input_new_task_and_priority()
         Processor.add_data_to_list(task, priority, lstTable)
         IO.input_press_to_continue(strStatus)
-        continue  # to show the menu
 
     elif strChoice == '2':  # Remove an existing Task
         task = IO.input_task_to_remove()
         Processor.remove_data_from_list(task, lstTable)
         IO.input_press_to_continue(strStatus)
-        continue  # to show the menu
 
     elif strChoice == '3':  # Save Data to File
         strChoice = IO.input_yes_no_choice("Save this data to file? (y/n) - ")
@@ -199,27 +197,25 @@ while (True):
             print("Your To-Do list has been saved.")
         else:
             IO.input_press_to_continue("Save Cancelled!")
-        continue  # to show the menu
 
     elif strChoice == '4':  # Reload Data from File
         print("WARNING: Unsaved Tasks Will Be Lost!")
         strChoice = IO.input_yes_no_choice("Are you sure you want to reload data from file? (y/n) -  ")
-        if strChoice.lower() == 'y': # to confirm user wants to reload
+        if strChoice.lower() == 'y':  # to confirm user wants to reload
             Processor.read_data_from_file(strFileName, lstTable)
             IO.input_press_to_continue(strStatus)
         else:
             IO.input_press_to_continue("File Reload Cancelled!")
-        continue  # to show the menu
 
     elif strChoice == '5':  # Exit Program
         print("WARNING: Unsaved Tasks Will Be Lost!")
         strChoice = IO.input_yes_no_choice("Are you sure you want to exit? (y/n) -  ")
-        if strChoice.lower() == 'y': # To confirm user is ready to exit program
-            print("Goodbye! Go out there and complete these tasks!\n")
+        if strChoice.lower() == 'y':  # To confirm user is ready to exit program
+            print("\nGoodbye! Go out there and complete these tasks!\n")
             break  # and Exit
         else:
             IO.input_press_to_continue("Exit Cancelled!")
-        continue  # to show the menu
+
     else: # to be displayed in user types anything other than 1-5
         print("You have unlocked the secret menu!")
         print("Actually there is nothing to see here.  Please select 1-5 only.")
