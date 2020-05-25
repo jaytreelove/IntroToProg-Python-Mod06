@@ -44,7 +44,7 @@ class Processor:
             row = {"Task": task.strip(), "Priority": priority.strip()}
             list_of_rows.append(row)
         file.close()
-        return list_of_rows, 'Success'
+        return list_of_rows, "\nTo-Do list reloading..."  # confirmation to user
 
     @staticmethod
     def add_data_to_list(task, priority, list_of_rows):
@@ -54,8 +54,8 @@ class Processor:
         :param list_of_rows: (list) you want filled with file data
         :return: (list) of dictionary rows
         """
-        list_of_rows.append({"Task": task, "Priority": priority})
-        return list_of_rows, 'Success'
+        list_of_rows.append({"Task": task.title(), "Priority": priority.lower()})
+        return list_of_rows, f"\n{task.title()} is added to the list."  # confirmation to user
 
     @staticmethod
     def remove_data_from_list(task, list_of_rows):
@@ -67,13 +67,13 @@ class Processor:
         task_check = False
         for row in list_of_rows:
             if row["Task"].lower() == task.lower():
-                strData = True
+                task_check = True
                 lstTable.remove(row)
-                print(f"\nCongrats on a job well done! {task.capitalize()} has been removed.")
                 continue
         if not task_check:
             print(f"\n{task.capitalize()} not found, you must have completed it earlier.")
-        return list_of_rows, 'Success'
+        # confirmation to user that taks is added
+        return list_of_rows, f"\nCongrats on a job well done! {task.capitalize()} has been removed."
 
     @staticmethod
     def write_data_to_file(file_name, list_of_rows):
@@ -86,7 +86,8 @@ class Processor:
         for line in lstTable:
             file.write(f"{line['Task']}, {line['Priority']}\n")
         file.close()
-        return list_of_rows, 'Success'
+        # confirmation to user that file has been updated
+        return list_of_rows, "\nSaving Data...\nYour To-Do list has been saved."
 
 
 # Presentation (Input/Output)  -------------------------------------------- #
@@ -181,36 +182,33 @@ while (True):
     # Step 4 - Process user's menu choice
     if strChoice.strip() == '1':  # Add a new Task
         task, priority = IO.input_new_task_and_priority()
-        Processor.add_data_to_list(task, priority, lstTable)
+        lstTable, strStatus = Processor.add_data_to_list(task, priority, lstTable)
         IO.input_press_to_continue(strStatus)
 
     elif strChoice == '2':  # Remove an existing Task
         task = IO.input_task_to_remove()
-        Processor.remove_data_from_list(task, lstTable)
+        lstTable, strStatus = Processor.remove_data_from_list(task, lstTable)
         IO.input_press_to_continue(strStatus)
 
     elif strChoice == '3':  # Save Data to File
         strChoice = IO.input_yes_no_choice("Save this data to file? (y/n) - ")
         if strChoice.lower() == "y":
-            # TODO: Add Code Here!
-            Processor.write_data_to_file(strFileName, lstTable)
+            lstTable, strStatus = Processor.write_data_to_file(strFileName, lstTable)
             IO.input_press_to_continue(strStatus)
-            print("\nSaving Data...")
-            print("Your To-Do list has been saved.")
         else:
             IO.input_press_to_continue("Save Cancelled!")
 
     elif strChoice == '4':  # Reload Data from File
-        print("WARNING: Unsaved Tasks Will Be Lost!")
+        print("WARNING: Unsaved Tasks Will Be Lost!")  # Make user aware of risk of reloading
         strChoice = IO.input_yes_no_choice("Are you sure you want to reload data from file? (y/n) -  ")
         if strChoice.lower() == 'y':  # to confirm user wants to reload
-            Processor.read_data_from_file(strFileName, lstTable)
+            lstTable, strStatus = Processor.read_data_from_file(strFileName, lstTable)
             IO.input_press_to_continue(strStatus)
         else:
             IO.input_press_to_continue("File Reload Cancelled!")
 
     elif strChoice == '5':  # Exit Program
-        print("WARNING: Unsaved Tasks Will Be Lost!")
+        print("WARNING: Unsaved Tasks Will Be Lost!")  # Make user aware of risk of exiting
         strChoice = IO.input_yes_no_choice("Are you sure you want to exit? (y/n) -  ")
         if strChoice.lower() == 'y':  # To confirm user is ready to exit program
             print("\nGoodbye! Go out there and complete these tasks!\n")
