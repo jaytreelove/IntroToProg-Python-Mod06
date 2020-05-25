@@ -1,7 +1,7 @@
 ## Assignment 06
 
 Assignment 05 used Lists and Dictionaries to create a "To-Do List" app.  
-This assignment improves that script with the addition of Function. 
+This assignment improves that script with the addition of Functions and Classes. 
 
 ### Functions
 
