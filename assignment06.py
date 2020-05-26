@@ -10,7 +10,8 @@
 # JPlemons,5.20.2020,Modified code to complete assignment 6
 # JPlemons,5.21.2020, Second Draft
 # JPlemons,5.22.2020, Finishing Touches
-# JPlemons,5.23.2020, Proof-read and final edit
+# JPlemons,5.23.2020, Proof-read and penultimate edit
+# JPlemons,5.25.2020, Edits made after Peer Review
 # ---------------------------------------------------------------------------- #
 
 # Data ---------------------------------------------------------------------- #
