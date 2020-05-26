@@ -54,8 +54,8 @@ class Processor:
         :param list_of_rows: (list) you want filled with file data
         :return: (list) of dictionary rows
         """
-        list_of_rows.append({"Task": task.title(), "Priority": priority.lower()})
-        return list_of_rows, f"\n{task.title()} is added to the list."  # confirmation to user
+        list_of_rows.append({"Task": task, "Priority": priority})
+        return list_of_rows, f"\n{task.capitalize()} is added to the list."  # confirmation to user
 
     @staticmethod
     def remove_data_from_list(task, list_of_rows):
